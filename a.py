@@ -15,14 +15,14 @@ from random import randint
 
 
 #For random waiting
-debug = False
+debug = True
 shortA = 5
 shortB = 10
 longA = 50
 longB = 100
 
 #Facebook groups
-testGroupLinks = [
+testGroupLinksFacebook = [
 	"https://www.facebook.com/groups/600475964231127/",
 	"https://www.facebook.com/groups/2685275021574710/"
 ]
@@ -52,28 +52,35 @@ ADHDInitialGroupsEnglish2 = [
 	"https://www.facebook.com/groups/1996816297217400/?notif_id=1577105053364318&notif_t=group_r2j_approved&ref=notif",	
 ]
 
+
+quantifiedSelfFacebook = [
+	"https://www.facebook.com/groups/quantifiedself/?notif_id=1590611126742152&notif_t=group_r2j_approved&ref=notif"
+]
+
+
 QuantifiedSelfReddit = [
-	"https://www.reddit.com/r/QuantifiedSelf/"
+	#"https://www.reddit.com/r/QuantifiedSelf/",
+	"https://www.reddit.com/r/Biohackers/",
+	"https://www.reddit.com/r/biohacker/"
 ]
 
 ########################### FILL OUT ALL INFORMATION FROM HERE ********************************************************************
-groupLinksFacebook = ADHDInitialGroupsEnglish2
+
+#Choose groups
+groupLinksFacebook = quantifiedSelfFacebook
 groupLinksReddit = QuantifiedSelfReddit
 
 #Images/Videos
 imagePaths = [
+	"C:\\Users\\lars\\OneDrive - Aalborg Universitet\\Programmering\\Python\\Scripts\\Posting\\OURA.png"
 ]
 
-
-
-
+#Define message
+title = "How accurate is Oura ring vs. Wearables vs. Smartphone apps? Has anyone tested the difference?"
 def composeMessage():
 	m = []
-	m.append(sentence("Hey everybody! :)\nWhat do you think of this guided meditation voice?\n- https://soundcloud.com/lars-pedersen-703978720/adhd-meditation-what-do-you-think-of-this-voice \n\n\nI'm the creator of the app \"Mindfulness for ADHD\", and am trying to find out if I should order more meditations from her, or from someone else, so PLEASE be honest! :)"))
-	#m.append(bold())
-	#m.append(sentence(False))
-	#m.append(bold())
-	#m.append(sentence(True))
+	#m.append(sentence("Hey everybody! :)\nWhat do you think of this guided meditation voice?\n- https://soundcloud.com/lars-pedersen-703978720/adhd-meditation-what-do-you-think-of-this-voice \n\n\nI'm the creator of the app \"Mindfulness for ADHD\", and am trying to find out if I should order more meditations from her, or from someone else, so PLEASE be honest! :)"))
+	m.append(sentence("Hey everybody! :) \n has anyone tried testing Oura ring against wearables like fitbit and smartphone apps?\nI'm trying to find something that is accurate enough to make experiments and trust the data. Has anyone tested Oura ring side to side with other sleep trackers?"))
 	return m
 
 ############################ AND UNTIL HERE #######################################################################
@@ -139,27 +146,14 @@ def postOnFacebook(driver, messages):
 			sleep(5)
 
 			# Click the 'Upload Photo/Video' button
-			#WebDriverWait(driver, 15).until(ec.visibility_of_element_located((By.XPATH, "//input[@type='file'][@class='_n _5f0v']")))
 			uploadPhotoButton = driver.find_element_by_xpath("//input[@type='file'][@class='_n _5f0v']")
-			#WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.NAME, "composer_photo")))
-			#uploadPhotoButton = driver.find_element_by_namend("composer_photo")
 			uploadPhotoButton.send_keys(path)
 			
 			# Wait for the image to upload
 			sleep(5)
 			wait(longA, longB)
-		#for message in messages:
-		#	postBox = driver.find_element_by_xpath("/html/body/div[1]/div[3]/div[1]/div/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/div/div/div/div/div/div/div/div/div/div/div/span/span")
-		#	postBox.send_keys(message)
 
-
-		#Post
-		#WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.XPATH, "//*[@data-testid='react-composer-post-button']")))
-		#post_button = driver.find_element_by_xpath("//*[@data-testid='react-composer-post-button']")
-		#post_button = driver.find_element_by_xpath("//button[@type='submit']")
 		clickable = False
-
-		
 		while not clickable:
 			try:
 				postBox =  driver.find_element_by_xpath(postBoxXPATH)
@@ -172,7 +166,7 @@ def postOnFacebook(driver, messages):
 			except NoSuchElementException:
 				clickable = True
 
-		print("succesfully posted to: " + link)
+		print("(Facebook) : succesfully posted to: " + link)
 		#post_button.click()
 		
 
@@ -186,7 +180,7 @@ def postOnReddit(driver, messages):
 	WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.LINK_TEXT, "LOG IN")))
 	loginButton = driver.find_element_by_link_text("LOG IN")
 	loginButton.click() 
-	sleep(5)
+	wait(shortA, shortB)
 
 	iframe = driver.find_elements_by_tag_name("iframe")
 	driver.switch_to.frame(1)
@@ -200,24 +194,50 @@ def postOnReddit(driver, messages):
 
 	
 	usernameField.send_keys(os.environ.get('USERNAMEOLD'))
+	sleep(5)
+	wait(shortA, shortB)
 	passwordField = driver.find_element_by_id("loginPassword")
 	passwordField.send_keys(os.environ.get('PASSWORD'))
+	wait(shortA, shortB)
 	loginButton2 = driver.find_element_by_class_name("AnimatedForm__submitButton")
 	loginButton2.click()
 	sleep(5)
+	wait(shortA, shortB)
 	
 	#Post in subreddits
 	for link in groupLinksReddit:
+
+		sleep(11*60)
+		wait(shortA, shortB)
+
 		#Enter subreddit
 		driver.get(link)
+		sleep(5)
+		wait(shortA, shortB)
 
-		##Create post
+		##"Create post" button
 		createPostButton = driver.find_element_by_link_text("CREATE POST")
 		createPostButton.click()
+		wait(shortA, shortB)
+
+		#Enter information
+		WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.TAG_NAME, 'textarea')))
+		titleField = driver.find_element_by_tag_name("textarea")
+		titleField.send_keys(title)
+		wait(shortA, shortB)
 
 		
 
+		bodyTextField = driver.find_element_by_class_name("public-DraftEditor-content")
+		for text in messages:
+			bodyTextField.send_keys(text)
 
+		#Post
+		postButton = driver.find_element_by_xpath('//*[@id="SHORTCUT_FOCUSABLE_DIV"]/div[2]/div/div/div/div[2]/div[3]/div[1]/div[2]/div[3]/div[3]/div[2]/div/div[1]/button')
+		postButton.click()
+
+		print("(Reddit) : succesfully posted to: " + link)
+		
 
 
 def openChrome():
@@ -236,7 +256,7 @@ def main():
 	print(messages)
 
 	driver = openChrome()
-	#ostOnFacebook(driver, messages)
+	#postOnFacebook(driver, messages)
 	postOnReddit(driver, messages)
 
 
