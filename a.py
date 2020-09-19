@@ -14,14 +14,21 @@ from random import randint
 
 
 
+
 #For random waiting
-debug = True
+debug = False
 shortA = 5
 shortB = 10
 longA = 50
 longB = 100
 
 #Facebook groups
+bodybuildingFacebook = [
+	"https://www.facebook.com/groups/631289720578391/?ref=br_rs",
+	"https://www.facebook.com/groups/453629264758830/?ref=br_rs",
+	"https://www.facebook.com/groups/musclewar/?ref=br_rs"
+]
+
 testGroupLinksFacebook = [
 	"https://www.facebook.com/groups/600475964231127/",
 	"https://www.facebook.com/groups/2685275021574710/"
@@ -40,17 +47,52 @@ guitarFacebookPrivate = [
 	"https://www.facebook.com/groups/guitarplayerscollective/?ref=br_rs"
 ]
 
-ADHDInitialGroupsEnglish = [
+ADHDGroupsFacebookEnglish1 = [
 	"https://www.facebook.com/groups/170248456950819/?notif_id=1577043797255333&notif_t=group_r2j_approved&ref=notif",
 	"https://www.facebook.com/groups/1148725191823971/?notif_id=1577046285861405&notif_t=group_r2j_approved&ref=notif",
-	"https://www.facebook.com/groups/adultadhdsupport/?notif_id=1577044633499211&notif_t=group_r2j_approved&ref=notif"
-
-]
-ADHDInitialGroupsEnglish2 = [
+	"https://www.facebook.com/groups/adultadhdsupport/?notif_id=1577044633499211&notif_t=group_r2j_approved&ref=notif",
 	"https://www.facebook.com/groups/1421578967876637/?notif_id=1577099025945041&notif_t=group_r2j_approved&ref=notif",
 	"https://www.facebook.com/groups/696361647197068/?notif_id=1577099048424827&notif_t=group_r2j_approved&ref=notif",
-	"https://www.facebook.com/groups/1996816297217400/?notif_id=1577105053364318&notif_t=group_r2j_approved&ref=notif",	
+	
+
 ]
+
+ADHDGroupsFacebookEnglish2 = [
+	"https://www.facebook.com/groups/1996816297217400/?notif_id=1577105053364318&notif_t=group_r2j_approved&ref=notif",	
+	"https://www.facebook.com/groups/adhdparentsuppport/?notif_id=1577111376869471&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/MyADHD/?notif_id=1577112395146851&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/supportforadhd/?notif_id=1577140037634331&notif_t=group_r2j_approved&ref=notif",
+	
+]
+
+ADHDGroupsFacebookEnglish3 = [
+	"https://www.facebook.com/groups/601537296692135/?notif_id=1577161481952195&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/366049367126466/?notif_id=1577310767996621&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/116833318979154/?notif_id=1577416202612259&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/additudemag/?notif_id=1577398475307953&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/ADHDNaturalNonMedicationchildrenSupport/?notif_id=1577655733005050&notif_t=group_r2j_approved&ref=notif",
+	
+]
+
+ADHDGroupsFacebookEnglish4 = [
+	"https://www.facebook.com/groups/168187756595334/?notif_id=1577680225667640&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/2474319084/?notif_id=1577705207542018&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/409354609832404/?notif_id=1577815912900309&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/483756611687483/?notif_id=1582510901695574&notif_t=group_r2j_approved"
+]
+
+physiotherapyFacebook = [
+	"https://www.facebook.com/groups/1765821727007016/?ref=br_rs",
+	"https://www.facebook.com/groups/412864998742796/?ref=br_rs",
+	"https://www.facebook.com/groups/202441989790194/?ref=br_rs",
+	#"https://www.facebook.com/groups/427750767317549/?ref=br_rs", DUR IKKE
+	"https://www.facebook.com/groups/TelehealthPTs/?ref=br_rs",
+	"https://www.facebook.com/groups/1573749652679279/?ref=br_rs",
+	"https://www.facebook.com/groups/934086979985824/?ref=br_rs",
+	"https://www.facebook.com/groups/sportsphysiotherapy/?ref=br_rs",
+	"https://www.facebook.com/groups/337909523042091/?ref=br_rs"
+]
+	
 
 
 quantifiedSelfFacebook = [
@@ -59,28 +101,63 @@ quantifiedSelfFacebook = [
 
 
 QuantifiedSelfReddit = [
-	#"https://www.reddit.com/r/QuantifiedSelf/",
+	"https://www.reddit.com/r/QuantifiedSelf/",
 	"https://www.reddit.com/r/Biohackers/",
 	"https://www.reddit.com/r/biohacker/"
+]
+
+SelfImprovementFacebook = [
+	"https://www.facebook.com/groups/1688036868097484/?ref=br_rs",
+	"https://www.facebook.com/groups/personaldevelopmentbusinessowners/?ref=br_rs",
+	"https://www.facebook.com/groups/personaldevelopmentbusinessowners/?ref=br_rs",
+	"https://www.facebook.com/groups/103281503048003/?notif_id=1588590857650040&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/selfimprovementsecretsrevealed1/?notif_id=1588594139889540&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/328246271086920/?notif_id=1588601685690249&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/dailyselfimprovementtopics/?notif_id=1588600649537336&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/491485350932591/?notif_id=1588600794075946&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/312342462784408/?notif_id=1588607924027175&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/559197144233811/?notif_id=1588613433726406&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/selfhelpspiritualbooks/?notif_id=1588628526267943&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/selfimprovementwithmeditationandyogatips/?notif_id=1588622130076918&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/psycholog/?notif_id=1588667880529341&notif_t=group_r2j_approved",
+	"https://www.facebook.com/groups/215126659279505/?notif_id=1589122679510050&notif_t=group_r2j_approved&ref=notif",
+	"https://www.facebook.com/groups/115654415435645/?notif_id=1589320115986978&notif_t=group_r2j_approved&ref=notif",
+
 ]
 
 ########################### FILL OUT ALL INFORMATION FROM HERE ********************************************************************
 
 #Choose groups
-groupLinksFacebook = quantifiedSelfFacebook
+groupLinksFacebook = SelfImprovementFacebook
 groupLinksReddit = QuantifiedSelfReddit
 
 #Images/Videos
 imagePaths = [
-	"C:\\Users\\lars\\OneDrive - Aalborg Universitet\\Programmering\\Python\\Scripts\\Posting\\OURA.png"
+	#"C:\\Users\\lars\\OneDrive - Aalborg Universitet\\Programmering\\Python\\Scripts\\Posting\\ab.png"
 ]
 
 #Define message
-title = "How accurate is Oura ring vs. Wearables vs. Smartphone apps? Has anyone tested the difference?"
+title = "Would you sell your tracked data if you were paid? How much should you be paid?"
 def composeMessage():
 	m = []
+
+	randomInteger = randint(1, 2)
+
+	sentence(m, 'The extended selfish gene" - Richard Dawkins\n')
+	sentence(m, "Was AMAZING to read! 📖\n")
+	sentence(m, "Aim of the book:\n")
+	sentence(m, "- Explains selfishness and altruism by looking at life from the perspective of genes!\n\n")
+	sentence(m, "Here is a full summary:\n")
+	sentence(m, "https://learnfromnotes.com/index.php/2020/09/19/the-extended-selfish-gene-richard-dawkins-summary/")
+	#sentence(m, "Would you sell your data?\nHow much money should you get to sell your data? \nWhat if it only was some of your data that you choose yourself?\n")
+	#sentence(m, "What if the data is used for companies market research? What if the data is used for science?\n\n")
+	#sentence(m, "Would love to hear your thoughts on this topic :D")
+
+
+
+
 	#m.append(sentence("Hey everybody! :)\nWhat do you think of this guided meditation voice?\n- https://soundcloud.com/lars-pedersen-703978720/adhd-meditation-what-do-you-think-of-this-voice \n\n\nI'm the creator of the app \"Mindfulness for ADHD\", and am trying to find out if I should order more meditations from her, or from someone else, so PLEASE be honest! :)"))
-	m.append(sentence("Hey everybody! :) \n has anyone tried testing Oura ring against wearables like fitbit and smartphone apps?\nI'm trying to find something that is accurate enough to make experiments and trust the data. Has anyone tested Oura ring side to side with other sleep trackers?"))
+	#m.append(sentence("Hey everybody! :) \n has anyone tried testing Oura ring against wearables like fitbit and smartphone apps?\nI'm trying to find something that is accurate enough to make experiments and trust the data. Has anyone tested Oura ring side to side with other sleep trackers?"))
 	return m
 
 ############################ AND UNTIL HERE #######################################################################
@@ -90,8 +167,8 @@ def wait(atLeast, atMost):
 	if not debug:
 		sleep(randint(atLeast, atMost))
 
-def sentence(text):
-	return Keys.ARROW_DOWN * 50 + text
+def sentence(m, text):
+	m.append(Keys.ARROW_DOWN * 50 + text)
 
 def bold():
 	return Keys.CONTROL + 'b'
@@ -115,7 +192,7 @@ def postOnFacebook(driver, messages):
 
 	#Login
 	passwordElement.send_keys(Keys.RETURN)
-	WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.XPATH, './/*[@id="navItem_217974574879787"]/a/div')))
+	#WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.XPATH, './/*[@id="navItem_217974574879787"]/a/div')))
 	wait(shortA, shortB)
 
 	#Post in all groups
@@ -256,8 +333,8 @@ def main():
 	print(messages)
 
 	driver = openChrome()
-	#postOnFacebook(driver, messages)
-	postOnReddit(driver, messages)
+	postOnFacebook(driver, messages)
+	#postOnReddit(driver, messages)
 
 
 if __name__ == "__main__":
