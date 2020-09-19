@@ -107,10 +107,10 @@ QuantifiedSelfReddit = [
 ]
 
 SelfImprovementFacebook = [
-	"https://www.facebook.com/groups/1688036868097484/?ref=br_rs",
-	"https://www.facebook.com/groups/personaldevelopmentbusinessowners/?ref=br_rs",
-	"https://www.facebook.com/groups/personaldevelopmentbusinessowners/?ref=br_rs",
-	"https://www.facebook.com/groups/103281503048003/?notif_id=1588590857650040&notif_t=group_r2j_approved&ref=notif",
+	#"https://www.facebook.com/groups/1688036868097484/?ref=br_rs",
+	#"https://www.facebook.com/groups/personaldevelopmentbusinessowners/?ref=br_rs",
+	#"https://www.facebook.com/groups/personaldevelopmentbusinessowners/?ref=br_rs",
+	#"https://www.facebook.com/groups/103281503048003/?notif_id=1588590857650040&notif_t=group_r2j_approved&ref=notif",
 	"https://www.facebook.com/groups/selfimprovementsecretsrevealed1/?notif_id=1588594139889540&notif_t=group_r2j_approved&ref=notif",
 	"https://www.facebook.com/groups/328246271086920/?notif_id=1588601685690249&notif_t=group_r2j_approved&ref=notif",
 	"https://www.facebook.com/groups/dailyselfimprovementtopics/?notif_id=1588600649537336&notif_t=group_r2j_approved&ref=notif",
@@ -144,7 +144,7 @@ def composeMessage():
 	randomInteger = randint(1, 2)
 
 	sentence(m, 'The extended selfish gene" - Richard Dawkins\n')
-	sentence(m, "Was AMAZING to read! 📖\n")
+	sentence(m, "Was AMAZING to read!\n")
 	sentence(m, "Aim of the book:\n")
 	sentence(m, "- Explains selfishness and altruism by looking at life from the perspective of genes!\n\n")
 	sentence(m, "Here is a full summary:\n")
@@ -175,7 +175,7 @@ def bold():
 
 def postOnFacebook(driver, messages):
 	#Elements:
-	postBoxXPATH = "/html/body/div[1]/div[3]/div[1]/div/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div/div[2]/div/div[1]/div[1]/div/div[1]/div[2]/div/div/div/div/div/div/div/div/div/div/div"
+	postBoxXPATH = "//*[@id='mount_0_0']/div/div[1]/div[1]/div[4]/div/div/div[1]/div/form/div/div/div/div/div/div[1]/div/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/div/div/div/div[2]/div/div/div/div"
 
 
 	#Open facebook
@@ -202,10 +202,11 @@ def postOnFacebook(driver, messages):
 		wait(shortA, shortB)
 
 		#Insert message
-		postBox = driver.find_element_by_xpath("//*[@name='xhpc_message_text']")
-		postBox.send_keys(' ')
+		postBox = driver.find_element_by_xpath(".//*[contains(text(), \"your mind\")]")
+		postBox.click()
 		WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.XPATH, postBoxXPATH)))
 		postBox = driver.find_element_by_xpath(postBoxXPATH)
+		postBox.send_keys(' ')
 		postBox.send_keys(Keys.DELETE)
 		wait(shortA, shortB)
 
@@ -233,14 +234,14 @@ def postOnFacebook(driver, messages):
 		clickable = False
 		while not clickable:
 			try:
-				postBox =  driver.find_element_by_xpath(postBoxXPATH)
-				postBox.click()
+				postButton = driver.find_element_by_xpath("//*[contains(text(), 'Post')]")
+				postButton.click()
 				postBox.send_keys(Keys.CONTROL + Keys.ENTER)
 				#ActionChains(driver).key_down(Keys.CONTROL).send_keys(Keys.ENTER).key_up(Keys.CONTROL).perform()
-				print("using: " + Keys.CONTROL + Keys.ENTER)
+				print("Clicking on POST button")
 				sleep(10)
 				wait(longA, longB)
-			except NoSuchElementException:
+			except:
 				clickable = True
 
 		print("(Facebook) : succesfully posted to: " + link)
